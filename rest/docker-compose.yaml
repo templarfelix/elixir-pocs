@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'leger'
+      MYSQL_USER: 'ledger'
+      MYSQL_ROOT_PASSWORD: 'ledger'
+      MYSQL_PASSWORD: 'ledger'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
