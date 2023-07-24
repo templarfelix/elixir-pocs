@@ -1,5 +1,5 @@
 # 
  generate
-> mix phx.new ledger --no-html --binary-id --database mysql
+> mix phx.new ledger --no-html --database mysql --binary-id
 
-> mix phx.gen.json Accounts Account accounts   id:uuid account:integer amount:decimal org:string --no-context --no-schema
+> mix phx.gen.json Control Account accounts  account:integer amount:decimal org:string 

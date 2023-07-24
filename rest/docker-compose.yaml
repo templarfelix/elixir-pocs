@@ -4,7 +4,7 @@ services:
     image: mysql
     restart: always
     environment:
-      MYSQL_DATABASE: 'leger'
+      MYSQL_DATABASE: 'ledger'
       MYSQL_USER: 'ledger'
       MYSQL_ROOT_PASSWORD: 'ledger'
       MYSQL_PASSWORD: 'ledger'

@@ -7,7 +7,7 @@ defmodule LedgerWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_ledger_key",
-    signing_salt: "3rM/gI5E",
+    signing_salt: "k0S+dKPe",
     same_site: "Lax"
   ]
 

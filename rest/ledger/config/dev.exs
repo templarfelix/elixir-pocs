@@ -2,10 +2,10 @@ import Config
 
 # Configure your database
 config :ledger, Ledger.Repo,
-  username: "root",
-  password: "",
+  username: "ledger",
+  password: "ledger",
   hostname: "localhost",
-  database: "ledger_dev",
+  database: "ledger",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -23,7 +23,7 @@ config :ledger, LedgerWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "WHcy1QSO8YOT0q/9uVG3pGiIgr2mROe12u+b93gQvfJ2FNsqrkhS6cL2ZvnF3LkJ",
+  secret_key_base: "LsxrMlDAnw8xVKY+kq0VIl6X1j3BzkLBoQCdbnfDQpOBOK3GA5e97yw8yMmrBv0O",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}

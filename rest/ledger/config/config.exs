@@ -8,7 +8,8 @@
 import Config
 
 config :ledger,
-  ecto_repos: [Ledger.Repo]
+  ecto_repos: [Ledger.Repo],
+  generators: [binary_id: true]
 
 # Configures the endpoint
 config :ledger, LedgerWeb.Endpoint,
@@ -18,7 +19,7 @@ config :ledger, LedgerWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Ledger.PubSub,
-  live_view: [signing_salt: "3w6t0L8f"]
+  live_view: [signing_salt: "0AyNCxO9"]
 
 # Configures the mailer
 #

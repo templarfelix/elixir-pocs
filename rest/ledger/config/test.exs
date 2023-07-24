@@ -17,7 +17,7 @@ config :ledger, Ledger.Repo,
 # you can enable the server option below.
 config :ledger, LedgerWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "Y5clLKmAqiCDEqo33iYyxskJ747ruJapHiVYSggQnKS3hcdodxf6BWqwaQNqxnSR",
+  secret_key_base: "IwRoJ/8pZVDmEAhWOKHEzfp8nojQzHx3fgesHTcdYSbOHcxTQb514uFDzR0XJsPD",
   server: false
 
 # In test we don't send emails.
