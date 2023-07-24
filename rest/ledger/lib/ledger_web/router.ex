@@ -7,6 +7,8 @@ defmodule LedgerWeb.Router do
 
   scope "/api", LedgerWeb do
     pipe_through :api
+
+    resources "/accounts", AccountController
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
