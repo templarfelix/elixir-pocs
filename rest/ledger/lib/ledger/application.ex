@@ -7,6 +7,15 @@ defmodule Ledger.Application do
 
   @impl true
   def start(_type, _args) do
+    topologies = [
+      default: [
+        strategy: Cluster.Strategy.Kubernetes.DNS,
+        config: [
+          service: "ledger-svc-headless",
+          application_name: "ledger"
+        ]
+      ]
+    ]
     children = [
       # Start the Telemetry supervisor
       LedgerWeb.Telemetry,
@@ -17,9 +26,10 @@ defmodule Ledger.Application do
       # Start Finch
       {Finch, name: Ledger.Finch},
       # Start the Endpoint (http/https)
-      LedgerWeb.Endpoint
+      LedgerWeb.Endpoint,
       # Start a worker by calling: Ledger.Worker.start_link(arg)
       # {Ledger.Worker, arg}
+      {Cluster.Supervisor, [topologies, [name: MyApp.ClusterSupervisor]]},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

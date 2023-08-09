@@ -8,6 +8,7 @@ defmodule LedgerWeb.Router do
   scope "/api", LedgerWeb do
     pipe_through :api
 
+    # custom route
     resources "/accounts", AccountController
   end
 

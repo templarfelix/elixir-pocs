@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ledger
+  namespace: default
+  labels:
+    app.kubernetes.io/name: ledger
+    app.kubernetes.io/instance: ledger-cluster
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: ledger
+      app.kubernetes.io/instance: ledger-node
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: ledger
+        app.kubernetes.io/instance: ledger-node
+    spec:
+      containers:
+        - name: main
+          image: templarfelix/pocs:elixir
+          imagePullPolicy: Always
+          env:
+            - name: RELEASE_NODE_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: DATABASE_URL
+              value: ecto://postgres:postgres@postgresql.default.svc.cluster.local/postgres
+            - name: SECRET_KEY_BASE
+              value: ledger
+            #- name: RELEASE_COOKIE
+            #  valueFrom:
+            #    secretKeyRef:
+            #      name: ledger-cluster
+            #      key: ERLANG_COOKIE
+          ports:
+            - name: http
+              containerPort: 4000
+              protocol: TCP
+            - name: epmd
+              containerPort: 4369
+              protocol: TCP

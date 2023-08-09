@@ -1,0 +1,18 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: default
+resources:
+- deployment.yaml
+- service.yaml
+
+helmCharts:
+- name: postgresql
+  repo: https://cetic.github.io/helm-charts
+  version: 0.2.3
+  releaseName: postgresql
+  namespace: default
+  valuesInLine:
+    postgresql:
+      username: postgres
+      password: postgres
+      database: postgres

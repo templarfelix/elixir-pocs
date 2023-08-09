@@ -1,4 +1,7 @@
 # 
+
+## install
+> mix archive.install hex phx_new
  generate
 > mix phx.new ledger --no-html --database mysql --binary-id
 

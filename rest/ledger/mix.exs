@@ -35,8 +35,6 @@ defmodule Ledger.MixProject do
       {:phoenix, "~> 1.7.7"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.10"},
-      {:ecto_psql_extras, "~> 0.6"},
-      {:ecto_mysql_extras, "~> 0.3"},
       {:myxql, ">= 0.0.0"},
       {:phoenix_live_dashboard, "~> 0.8.0"},
       {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
@@ -47,7 +45,8 @@ defmodule Ledger.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:libcluster, "~> 3.3"}
     ]
   end
 

@@ -19,7 +19,7 @@ config :ledger, LedgerWeb.Endpoint,
     layout: false
   ],
   pubsub_server: Ledger.PubSub,
-  live_view: [signing_salt: "0AyNCxO9"]
+  live_view: [signing_salt: "nNfqubxZ"]
 
 # Configures the mailer
 #

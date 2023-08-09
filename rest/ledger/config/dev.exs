@@ -23,7 +23,7 @@ config :ledger, LedgerWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "LsxrMlDAnw8xVKY+kq0VIl6X1j3BzkLBoQCdbnfDQpOBOK3GA5e97yw8yMmrBv0O",
+  secret_key_base: "Xpn762dVSCoQl1yY03997ZiImxe8Z9Nf1yyGOXP+8HJtaOzg7/n4yco3iu51B46p",
   watchers: [
     esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
     tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
