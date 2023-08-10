@@ -7,15 +7,9 @@ defmodule Ledger.Application do
 
   @impl true
   def start(_type, _args) do
-    topologies = [
-      default: [
-        strategy: Cluster.Strategy.Kubernetes.DNS,
-        config: [
-          service: "ledger-svc-headless",
-          application_name: "ledger"
-        ]
-      ]
-    ]
+
+    topologies = Application.get_env(:libcluster, :topologies)
+
     children = [
       # Start the Telemetry supervisor
       LedgerWeb.Telemetry,
@@ -35,6 +29,7 @@ defmodule Ledger.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Ledger.Supervisor]
+
     Supervisor.start_link(children, opts)
   end
 

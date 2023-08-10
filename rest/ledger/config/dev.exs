@@ -10,6 +10,14 @@ config :ledger, Ledger.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+# Configure LibCluster
+config :libcluster,
+  topologies: [
+    example: [
+      strategy: LibCluster.LocalStrategy
+    ]
+  ]
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #

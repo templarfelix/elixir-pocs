@@ -23,7 +23,7 @@ defmodule Ledger.Control do
   """
   def list_accounts do
     Logger.info("debug list_accounts")
-    :ok = Groot.set(:key, "value")
+    # :ok = Groot.set(:key, "value")
     Repo.all(Account)
   end
 
@@ -42,8 +42,7 @@ defmodule Ledger.Control do
 
   """
   def get_account!(id) do
-    Logger.info("debug get_account")
-    Logger.info("Teste: #{inspect(Groot.get(:key))}")
+    #Logger.info("Teste: #{inspect(Groot.get(:key))}")
     Repo.get!(Account, id)
   end
 
