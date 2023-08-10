@@ -4,9 +4,12 @@ defmodule Ledger.Control do
   """
 
   import Ecto.Query, warn: false
-  alias Ledger.Repo
+  import Logger, warn: false
 
+  alias Ledger.Repo
   alias Ledger.Control.Account
+
+  #require Logger
 
 
   @doc """
@@ -19,6 +22,8 @@ defmodule Ledger.Control do
 
   """
   def list_accounts do
+    Logger.info("debug list_accounts")
+    :ok = Groot.set(:key, "value")
     Repo.all(Account)
   end
 
@@ -36,7 +41,11 @@ defmodule Ledger.Control do
       ** (Ecto.NoResultsError)
 
   """
-  def get_account!(id), do: Repo.get!(Account, id)
+  def get_account!(id) do
+    Logger.info("debug get_account")
+    Logger.info("Teste: #{inspect(Groot.get(:key))}")
+    Repo.get!(Account, id)
+  end
 
   @doc """
   Creates a account.

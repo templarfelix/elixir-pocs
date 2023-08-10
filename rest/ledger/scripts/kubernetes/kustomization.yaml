@@ -6,13 +6,11 @@ resources:
 - service.yaml
 
 helmCharts:
-- name: postgresql
-  repo: https://cetic.github.io/helm-charts
-  version: 0.2.3
-  releaseName: postgresql
+- name: mysql
+  releaseName: mysql
+  repo: https://charts.helm.sh/stable/
   namespace: default
   valuesInLine:
-    postgresql:
-      username: postgres
-      password: postgres
-      database: postgres
+    mysqlUser: ledger
+    mysqlPassword: ledger
+    mysqlDatabase: ledger

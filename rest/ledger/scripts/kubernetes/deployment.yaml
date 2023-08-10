@@ -32,7 +32,7 @@ spec:
                 fieldRef:
                   fieldPath: status.podIP
             - name: DATABASE_URL
-              value: ecto://postgres:postgres@postgresql.default.svc.cluster.local/postgres
+              value: ecto://ledger:ledger@mysql.default.svc.cluster.local/ledger
             - name: SECRET_KEY_BASE
               value: ledger
             #- name: RELEASE_COOKIE

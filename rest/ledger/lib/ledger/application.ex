@@ -29,7 +29,7 @@ defmodule Ledger.Application do
       LedgerWeb.Endpoint,
       # Start a worker by calling: Ledger.Worker.start_link(arg)
       # {Ledger.Worker, arg}
-      {Cluster.Supervisor, [topologies, [name: MyApp.ClusterSupervisor]]},
+      {Cluster.Supervisor, [topologies, [name: Ledger.ClusterSupervisor]]},
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
