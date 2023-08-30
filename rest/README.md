@@ -7,8 +7,6 @@
 
 > mix phx.gen.json Control Account accounts account:integer amount:decimal org:string 
 
-> 
-
 curl --location 'localhost:4000/api/accounts' \
 --header 'Content-Type: application/json' \
 --data '{

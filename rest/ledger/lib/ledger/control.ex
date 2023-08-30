@@ -59,6 +59,7 @@ defmodule Ledger.Control do
 
   """
   def create_account(attrs \\ %{}) do
+    Logger.info("debug create_account")
     %Account{}
     |> Account.changeset(attrs)
     |> Repo.insert()
