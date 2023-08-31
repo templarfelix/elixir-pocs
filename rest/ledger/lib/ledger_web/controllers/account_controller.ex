@@ -1,6 +1,7 @@
 defmodule LedgerWeb.AccountController do
   use LedgerWeb, :controller
 
+  alias Ledger.Cache
   alias Ledger.Control
   alias Ledger.Control.Account
 
@@ -21,6 +22,16 @@ defmodule LedgerWeb.AccountController do
   end
 
   def show(conn, %{"id" => id}) do
+
+    case Cache.fetch(id) do
+      nil ->
+        Logger.info("debug get_account")
+        account = Control.get_account!(id)
+        MyCache.put(id, account)
+      value ->
+        json(conn, %{data: value})
+    end
+
     account = Control.get_account!(id)
     render(conn, :show, account: account)
   end

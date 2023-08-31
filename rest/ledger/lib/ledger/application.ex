@@ -13,6 +13,8 @@ defmodule Ledger.Application do
     children = [
       # Start the Telemetry supervisor
       LedgerWeb.Telemetry,
+      # Start cacje
+      Ledger.Cache,
       # Start the Ecto repository
       Ledger.Repo,
       # Start the PubSub system
